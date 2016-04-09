@@ -3,6 +3,7 @@
 # Some generally useful stuff
 #
 
+#
 # Get the list of dates between $1 and $2 (exclusive)
 #
 # e.g.   $ daysd 2016-01-01 2016-01-03
@@ -20,6 +21,7 @@ function daysd {
   echo ${result[*]}
 }
 
+#
 # Get a list of $2 dates starting at $1
 #
 # e.g.   $ daysi 2016-01-01 2
