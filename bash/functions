@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# Some generally useful stuff
+#
+
+# Get the list of dates between $1 and $2 (exclusive)
+#
+# e.g.   $ daysd 2016-01-01 2016-01-03
+#        > 2016-01-01 2016-01-02
+#
+function daysd {
+  unset result
+  current=$1
+  end=$2
+  i=0
+  while [[ "$current" < "$end" ]] ; do
+	result[$(( i++ ))]=$current
+    current=$(date +%Y-%m-%d -d "$current + 1 day")
+  done
+  echo ${result[*]}
+}
+
+# Get a list of $2 dates starting at $1
+#
+# e.g.   $ daysi 2016-01-01 2
+#        > 2016-01-01 2016-01-02
+#
+function daysi {
+  daysd $1 "$(date +%Y-%m-%d -d "$1 + $2 day")"
+}
+
+
