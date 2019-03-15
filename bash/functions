@@ -31,4 +31,7 @@ function daysi {
   daysd $1 "$(date +%Y-%m-%d -d "$1 + $2 day")"
 }
 
-
+# Look at markdown
+function md {
+  markdown $1 | lynx --stdin
+}
