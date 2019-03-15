@@ -1,0 +1,10 @@
+
+function gc() {
+  comment="$@"
+  git commit -m "$(git rev-parse --abbrev-ref HEAD | awk -F \- '{ if($1 == "NOJIRA") print $1; else print $1 "-" $2; }') $comment"
+}
+
+function gca() {
+  git add .
+  gc "$@"
+}
