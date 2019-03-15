@@ -1,0 +1,12 @@
+
+notes() {
+  if [[ "$1" == "list" ]]; then
+    ls -1 "$HOME/notes/"
+  elif [[ "$1" == "read" ]]; then
+    less "$HOME/notes/$2"
+  elif [[ "$1" == "edit" ]]; then
+    vim "$HOME/notes/$2"
+  else
+    cat - >> "$HOME/notes/$1"
+  fi
+}
